@@ -52,9 +52,9 @@ public class MainWindow {
 			errorPopup.showAndWait();
 		}
 	}
-
-	@FXML
-	void initialize() {
+	
+	 @FXML
+	 void initialize() {
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.students != null : "fx:id=\"students\" was not injected: check your FXML file 'MainWindow.fxml'.";
 
