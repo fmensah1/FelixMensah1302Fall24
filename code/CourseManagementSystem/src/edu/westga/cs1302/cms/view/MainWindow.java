@@ -1,5 +1,6 @@
 package edu.westga.cs1302.cms.view;
 
+import edu.westga.cs1302.cms.model.GradeCalculator;
 import edu.westga.cs1302.cms.model.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,6 +52,24 @@ public class MainWindow {
 			errorPopup.setContentText("No student selected. Unable to remove.");
 			errorPopup.showAndWait();
 		}
+	}
+	
+	@FXML
+	void viewAverageGrade(ActionEvent event) {
+	    if (this.students.getItems().isEmpty()) {
+	        Alert errorPopup = new Alert(Alert.AlertType.INFORMATION);
+	        errorPopup.setContentText("No students in the list.");
+	        errorPopup.showAndWait();
+	        return;
+	    }
+
+	    double average = GradeCalculator.computeAverage(this.students.getItems());
+	    
+	    Alert infoPopup = new Alert(Alert.AlertType.INFORMATION);
+	    infoPopup.setTitle("Average Grade");
+	    infoPopup.setHeaderText(null);
+	    infoPopup.setContentText("The average grade is: " + String.format("%.2f", average));
+	    infoPopup.showAndWait();
 	}
 	
 	 @FXML

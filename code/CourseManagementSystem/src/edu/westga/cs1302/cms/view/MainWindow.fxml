@@ -15,5 +15,6 @@
       <ListView fx:id="students" layoutX="14.0" layoutY="123.0" prefHeight="164.0" prefWidth="200.0" />
       <TextField fx:id="grade" layoutX="14.0" layoutY="87.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter Grade" />
       <Label layoutX="98.0" layoutY="63.0" text="Grade" />
+      <Button layoutX="22.0" layoutY="295.0" mnemonicParsing="false" onAction="#viewAverageGrade" prefHeight="25.0" prefWidth="114.0" text="Average Grade " />
    </children>
 </AnchorPane>
