@@ -17,6 +17,7 @@ public class BillTextifier {
 	 * @precondition none
 	 * @postcondition none
 	 * 
+	 * @param bill the bill
 	 * @return a String summarizing the bill
 	 */
 	public static String getText(Bill bill) {
