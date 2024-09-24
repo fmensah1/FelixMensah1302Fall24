@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="343.0" minWidth="294.0" prefHeight="343.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.edu.cs1302.pantry_tracker.view.MainWindow" />
