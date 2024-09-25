@@ -1,7 +1,11 @@
 package edu.westga.edu.cs1302.pantry_tracker.view;
 
+import edu.westga.edu.cs1302.pantry_tracker.model.Food;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -14,18 +18,47 @@ import javafx.scene.control.TextField;
  */
 public class MainWindow {
 
-    @FXML
-    private ComboBox<?> foodTypeComboBox;
+	@FXML
+	private ComboBox<String> foodTypeComboBox;
 
-    @FXML
-    private ListView<?> foods;
+	@FXML
+	private ListView<Food> foodListView;
 
-    @FXML
-    private TextField name;
+	@FXML
+	private TextField name;
 
-    @FXML
-    void addFood(ActionEvent event) {
+	@FXML
+	void addFood(ActionEvent event) {
+		String foodName = this.name.getText();
+		try {
+			String foodType = this.foodTypeComboBox.getValue();
+			Food food = new Food(foodName, foodType);
+			this.foodListView.getItems().add(food);
+            this.foodTypeComboBox.getSelectionModel();
+            this.name.clear();
+            this.foodTypeComboBox.getSelectionModel().clearSelection();
 
-    }
+		} catch (IllegalArgumentException errorObject) {
+
+			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			errorPopup.setContentText("Unable to add food: " + errorObject.getMessage());
+			errorPopup.showAndWait();
+		}
+	}
+
+	@FXML
+	void initialize() {
+		assert this.foodTypeComboBox != null
+				: "fx:id=\"foodTypeComboBox\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.foodListView != null : "fx:id=\"foods\" was not injected: check your FXML file 'MainWindow.fxml'.";
+		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
+
+		this.foodTypeComboBox.getItems().add("Vegetable");
+		this.foodTypeComboBox.getItems().add("Meat");
+		this.foodTypeComboBox.getItems().add("Bread");
+		this.foodTypeComboBox.getItems().add("Fruit");
+		this.foodTypeComboBox.getItems().add("Dessert");
+		this.foodTypeComboBox.getItems().add("Ingredient");
+	}
 
 }
