@@ -1,6 +1,5 @@
 package edu.westga.edu.cs1302.pantry_tracker.model;
 
-
 /** Stores and manages information for a single food.
  * 
  * @author felix
@@ -8,8 +7,7 @@ package edu.westga.edu.cs1302.pantry_tracker.model;
  */
 public class Food {
     
-  
-   private final String name;
+    private final String name;
     private final String type;
     private int quantity;
     
@@ -74,7 +72,6 @@ public class Food {
     	}
     }
     	
-    
     /**
      * Increment quantity.
      */
