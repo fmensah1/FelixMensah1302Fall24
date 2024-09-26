@@ -1,6 +1,8 @@
 package edu.westga.edu.cs1302.pantry_tracker.view;
 
 import edu.westga.edu.cs1302.pantry_tracker.model.Food;
+import edu.westga.edu.cs1302.pantry_tracker.model.ItemsCount;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -145,7 +147,20 @@ public class MainWindow {
 	
 	@FXML
     void countItems(ActionEvent event) {
-
+	    ObservableList<Food> foodItems = this.foodListView.getItems();
+	    if (!foodItems.isEmpty()) {
+	        int totalQuantity = ItemsCount.getTotalQuantity(foodItems.toArray(new Food[0]));
+	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+	        alert.setHeaderText("Pantry Summary");
+	        alert.setContentText("Total quantity of food in the pantry: " + totalQuantity);
+	        alert.showAndWait();
+	    } else {
+	        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+	        alert.setHeaderText("Pantry Summary");
+	        alert.setContentText("There are no food items in the pantry.");
+	        alert.showAndWait();
+	    }
+		}
     }
 		
-}
+
