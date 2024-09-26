@@ -15,10 +15,11 @@
       <ComboBox fx:id="foodTypeComboBox" layoutX="11.0" layoutY="98.0" prefWidth="150.0" promptText="Select Type" />
       <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onAction="#addFood" prefHeight="25.0" prefWidth="143.0" text="Add to list" />
       <ListView fx:id="foodListView" layoutX="211.0" layoutY="23.0" prefHeight="181.0" prefWidth="228.0" />
-      <Label layoutX="293.0" layoutY="217.0" text="Set quantity" />
-      <TextField fx:id="quantity" layoutX="305.0" layoutY="234.0" prefHeight="25.0" prefWidth="42.0" />
-      <Button layoutX="356.0" layoutY="234.0" mnemonicParsing="false" onAction="#increaseQuantity" prefHeight="25.0" prefWidth="32.0" text="+" />
-      <Button layoutX="261.0" layoutY="234.0" mnemonicParsing="false" onAction="#decreaseQuantity" prefHeight="25.0" prefWidth="32.0" text="-" />
-      <Button layoutX="309.0" layoutY="267.0" mnemonicParsing="false" onAction="#setQuantity" text="Set" />
+      <Label layoutX="342.0" layoutY="219.0" text="Set quantity" />
+      <TextField fx:id="quantity" layoutX="354.0" layoutY="236.0" prefHeight="25.0" prefWidth="42.0" />
+      <Button layoutX="405.0" layoutY="236.0" mnemonicParsing="false" onAction="#increaseQuantity" prefHeight="25.0" prefWidth="32.0" text="+" />
+      <Button layoutX="310.0" layoutY="236.0" mnemonicParsing="false" onAction="#decreaseQuantity" prefHeight="25.0" prefWidth="32.0" text="-" />
+      <Button layoutX="358.0" layoutY="269.0" mnemonicParsing="false" onAction="#setQuantity" text="Set" />
+      <Button layoutX="211.0" layoutY="215.0" mnemonicParsing="false" onAction="#removeFood" text="remove" />
    </children>
 </AnchorPane>

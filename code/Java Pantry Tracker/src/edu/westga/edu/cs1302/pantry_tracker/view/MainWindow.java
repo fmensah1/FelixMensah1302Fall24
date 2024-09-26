@@ -130,5 +130,9 @@ public class MainWindow {
 		this.foodTypeComboBox.getItems().add("Dessert");
 		this.foodTypeComboBox.getItems().add("Ingredient");
 	}
+	
+	@FXML
+    void removeFood(ActionEvent event) {
 
+    }
 }
