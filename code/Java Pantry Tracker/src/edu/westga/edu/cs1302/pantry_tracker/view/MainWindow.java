@@ -141,6 +141,11 @@ public class MainWindow {
 			errorPopup.setContentText("No food selected. Unable to remove.");
 			errorPopup.showAndWait();
 		}
+	}
+	
+	@FXML
+    void countItems(ActionEvent event) {
 
     }
+		
 }

@@ -7,19 +7,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="343.0" minWidth="294.0" prefHeight="343.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.edu.cs1302.pantry_tracker.view.MainWindow">
+<AnchorPane minHeight="343.0" minWidth="294.0" prefHeight="398.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.edu.cs1302.pantry_tracker.view.MainWindow">
    <children>
       <Label layoutX="14.0" layoutY="26.0" prefHeight="17.0" prefWidth="71.0" text="Food Name" />
       <TextField fx:id="name" layoutX="11.0" layoutY="43.0" promptText="Enter name of food" />
       <Label layoutX="14.0" layoutY="81.0" text="Food Type" />
       <ComboBox fx:id="foodTypeComboBox" layoutX="11.0" layoutY="98.0" prefWidth="150.0" promptText="Select Type" />
       <Button layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onAction="#addFood" prefHeight="25.0" prefWidth="143.0" text="Add to list" />
-      <ListView fx:id="foodListView" layoutX="211.0" layoutY="23.0" prefHeight="181.0" prefWidth="228.0" />
-      <Label layoutX="342.0" layoutY="219.0" text="Set quantity" />
-      <TextField fx:id="quantity" layoutX="354.0" layoutY="236.0" prefHeight="25.0" prefWidth="42.0" />
-      <Button layoutX="405.0" layoutY="236.0" mnemonicParsing="false" onAction="#increaseQuantity" prefHeight="25.0" prefWidth="32.0" text="+" />
-      <Button layoutX="310.0" layoutY="236.0" mnemonicParsing="false" onAction="#decreaseQuantity" prefHeight="25.0" prefWidth="32.0" text="-" />
-      <Button layoutX="358.0" layoutY="269.0" mnemonicParsing="false" onAction="#setQuantity" text="Set" />
-      <Button layoutX="211.0" layoutY="215.0" mnemonicParsing="false" onAction="#removeFood" text="remove" />
+      <ListView fx:id="foodListView" layoutX="177.0" layoutY="43.0" prefHeight="181.0" prefWidth="197.0" />
+      <Label layoutX="245.0" layoutY="227.0" text="Set quantity" />
+      <TextField fx:id="quantity" layoutX="257.0" layoutY="244.0" prefHeight="25.0" prefWidth="42.0" />
+      <Button layoutX="308.0" layoutY="244.0" mnemonicParsing="false" onAction="#increaseQuantity" prefHeight="25.0" prefWidth="32.0" text="+" />
+      <Button layoutX="213.0" layoutY="244.0" mnemonicParsing="false" onAction="#decreaseQuantity" prefHeight="25.0" prefWidth="32.0" text="-" />
+      <Button layoutX="261.0" layoutY="277.0" mnemonicParsing="false" onAction="#setQuantity" text="Set" />
+      <Button layoutX="383.0" layoutY="43.0" mnemonicParsing="false" onAction="#removeFood" text="remove" />
+      <Button layoutX="177.0" layoutY="310.0" mnemonicParsing="false" onAction="#countItems" prefHeight="25.0" prefWidth="197.0" text="View total nuber of Items" />
    </children>
 </AnchorPane>
