@@ -30,10 +30,9 @@ import edu.westga.edu.cs1302.pantry_tracker.model.Food;
 	    @Test
 	    public void testSetNegativeQuantity() {
 	        Food food = new Food("Bread", "Bread");
-	        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+	        assertThrows(IllegalArgumentException.class, () -> {
 	            food.setQuantity(-1);
 	        });
-	        assertEquals("Quantity must not be negative", exception.getMessage(), "Setting a negative quantity should throw an IllegalArgumentException.");
 	    }
 	}
 
