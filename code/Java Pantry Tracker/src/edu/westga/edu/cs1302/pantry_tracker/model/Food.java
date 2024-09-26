@@ -1,5 +1,6 @@
 package edu.westga.edu.cs1302.pantry_tracker.model;
 
+
 /** Stores and manages information for a single food.
  * 
  * @author felix
@@ -7,6 +8,7 @@ package edu.westga.edu.cs1302.pantry_tracker.model;
  */
 public class Food {
     
+  
    private final String name;
     private final String type;
     private int quantity;
@@ -24,7 +26,7 @@ public class Food {
     	if (name == null) {
 			throw new IllegalArgumentException("Name must be provided.");
 		}
-		if (name.length() < 3) {
+		if (name.length() < 2) {
 			throw new IllegalArgumentException("Name must have at least 2 characters.");
 		}
         this.name = name;
@@ -65,7 +67,30 @@ public class Food {
      * @param quantity the new quantity
      */
     public void setQuantity(int quantity) {
+    	if (quantity >= 0) {
         this.quantity = quantity;
+    	} else {
+    	throw new IllegalArgumentException("Quantity must not be negative");
+    	}
+    }
+    	
+    
+    /**
+     * Increment quantity.
+     */
+    public void incrementQuantity() {
+        this.quantity++;
+    }
+    
+    /**
+     * Decrement quantity.
+     */
+    public void decrementQuantity() {
+        if (this.quantity > 0) {
+            this.quantity--;
+        } else {
+            throw new IllegalArgumentException("Quantity cannot be less than 0.");
+        }
     }
 
     /**

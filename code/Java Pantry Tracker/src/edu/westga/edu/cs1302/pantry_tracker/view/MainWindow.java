@@ -47,25 +47,25 @@ public class MainWindow {
 		}
 	}
 
-			//	@FXML
-			//    void setQuantity(ActionEvent event) {
-			//	Food food = this.foodListView.getSelectionModel().getSelectedItem();
-			//	try {
-			//		int quantity = Integer.parseInt(this.quantity.getText());
-			//		food.setQuantity(quantity);
-			//		this.quantity.clear();
-			//	} catch (NumberFormatException errorThing) {
-			//		Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			//		errorPopup.setContentText(
-			//				"Unable to create student: " + errorThing.getMessage() + ". Please reenter quantity and try again.");
-			//		errorPopup.showAndWait();
-			//	} catch (IllegalArgumentException errorObject) {
-			//
-			//			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
-			//			errorPopup.setContentText("Unable to add quantity: " + errorObject.getMessage());
-			//			errorPopup.showAndWait();
-			//		
-			//		}
+				@FXML
+			    void setQuantity(ActionEvent event) {
+				Food food = this.foodListView.getSelectionModel().getSelectedItem();
+				try {
+					int quantity = Integer.parseInt(this.quantity.getText());
+					food.setQuantity(quantity);
+					this.quantity.clear();
+				} catch (NumberFormatException errorThing) {
+					Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+					errorPopup.setContentText(
+							"Unable to create student: " + errorThing.getMessage() + ". Please reenter quantity and try again.");
+					errorPopup.showAndWait();
+				} catch (IllegalArgumentException errorObject) {
+			
+						Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+						errorPopup.setContentText("Unable to add quantity: " + errorObject.getMessage());
+						errorPopup.showAndWait();
+				}
+			}
 				
 	   @FXML
 	    void decreaseQuantity(ActionEvent event) {
