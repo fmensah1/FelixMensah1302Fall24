@@ -1,8 +1,6 @@
 package edu.westga.edu.cs1302.pantry_tracker.view;
 
 import edu.westga.edu.cs1302.pantry_tracker.model.Food;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,6 +24,9 @@ public class MainWindow {
 
 	@FXML
 	private TextField name;
+	
+	@FXML
+	private TextField quantity;
 
 	@FXML
 	void addFood(ActionEvent event) {
@@ -46,13 +47,47 @@ public class MainWindow {
 		}
 	}
 
+			//	@FXML
+			//    void setQuantity(ActionEvent event) {
+			//	Food food = this.foodListView.getSelectionModel().getSelectedItem();
+			//	try {
+			//		int quantity = Integer.parseInt(this.quantity.getText());
+			//		food.setQuantity(quantity);
+			//		this.quantity.clear();
+			//	} catch (NumberFormatException errorThing) {
+			//		Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			//		errorPopup.setContentText(
+			//				"Unable to create student: " + errorThing.getMessage() + ". Please reenter quantity and try again.");
+			//		errorPopup.showAndWait();
+			//	} catch (IllegalArgumentException errorObject) {
+			//
+			//			Alert errorPopup = new Alert(Alert.AlertType.ERROR);
+			//			errorPopup.setContentText("Unable to add quantity: " + errorObject.getMessage());
+			//			errorPopup.showAndWait();
+			//		
+			//		}
+				
+	   @FXML
+	    void decreaseQuantity(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void increaseQuantity(ActionEvent event) {
+
+	    }
+
+	    
+
 	@FXML
 	void initialize() {
 		assert this.foodTypeComboBox != null
 				: "fx:id=\"foodTypeComboBox\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.foodListView != null : "fx:id=\"foods\" was not injected: check your FXML file 'MainWindow.fxml'.";
 		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
-
+		assert this.name != null : "fx:id=\"name\" was not injected: check your FXML file 'MainWindow.fxml'.";
+	    assert this.quantity != null : "fx:id=\"quantity\" was not injected: check your FXML file 'MainWindow.fxml'.";
+	        	
 		this.foodTypeComboBox.getItems().add("Vegetable");
 		this.foodTypeComboBox.getItems().add("Meat");
 		this.foodTypeComboBox.getItems().add("Bread");
