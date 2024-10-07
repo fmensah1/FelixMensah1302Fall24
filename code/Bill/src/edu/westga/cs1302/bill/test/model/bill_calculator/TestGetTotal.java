@@ -6,72 +6,73 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.bill.model.BillCalculator;
 import edu.westga.cs1302.bill.model.BillItem;
+import edu.westga.cs1302.bill.test.TestingConstants;
 
-public class TestGetTotal {
+class TestGetTotal {
 
-
-	    @Test
-	    public void testGetTotal_WithValidItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            new BillItem("Fries", 3.49),
-	            new BillItem("Soda", 1.99)
-	        };
-	        
-	        double expectedSubTotal = 10.99 + 3.49 + 1.99;
-	        double expectedTax = expectedSubTotal * 0.1;  // Assuming tax is 10%
-	        double expectedTip = expectedSubTotal * 0.2;  // Assuming tip is 20%
-	        double expectedTotal = expectedSubTotal + expectedTax + expectedTip;
-	        
-	        double actualTotal = BillCalculator.getTotal(items);
-	        
-	        assertEquals(expectedTotal, actualTotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetTotal_WithNullItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            null,
-	            new BillItem("Fries", 3.49)
-	        };
-	        
-	        double expectedSubTotal = 10.99 + 3.49;
-	        double expectedTax = expectedSubTotal * 0.1;  // Tax is 10%
-	        double expectedTip = expectedSubTotal * 0.2;  // Tip is 20%
-	        double expectedTotal = expectedSubTotal + expectedTax + expectedTip;
-	        
-	        double actualTotal = BillCalculator.getTotal(items);
-	        
-	        assertEquals(expectedTotal, actualTotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetTotal_WithEmptyArray() {
-	        BillItem[] items = new BillItem[0];
-	        
-	        double expectedTotal = 0.0;  // No items, so total should be 0
-	        double actualTotal = BillCalculator.getTotal(items);
-	        
-	        assertEquals(expectedTotal, actualTotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetTotal_WithAllNullItems() {
-	        BillItem[] items = {
-	            null,
-	            null,
-	            null
-	        };
-	        
-	        double expectedTotal = 0.0;  // All null items, so total should be 0
-	        double actualTotal = BillCalculator.getTotal(items);
-	        
-	        assertEquals(expectedTotal, actualTotal, 0.001);
-	    }
-
-	    
+	@Test
+	void testNullItems() {
+		assertThrows(IllegalArgumentException.class, ()->{BillCalculator.getTotal(null);});
 	}
 
+	@Test
+	void testEmptyItems() {
+		double result = BillCalculator.getTotal(new BillItem[0]);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
 
+	@Test
+	void testOneItemNotNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = new BillItem("a", 1);
+		
+		double result = BillCalculator.getTotal(items);
+		
+		assertEquals(1.3, result, TestingConstants.DELTA);
+	}
 
+	@Test
+	void testOneItemAllNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = null;
+		
+		double result = BillCalculator.getTotal(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsNotNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = new BillItem("b", 2);
+		
+		double result = BillCalculator.getTotal(items);
+		
+		assertEquals(3.9, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsSomeNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = null;
+		
+		double result = BillCalculator.getTotal(items);
+		
+		assertEquals(1.3, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsAllNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = null;
+		items[1] = null;
+		
+		double result = BillCalculator.getTotal(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
+
+}

@@ -6,59 +6,73 @@ import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.bill.model.BillCalculator;
 import edu.westga.cs1302.bill.model.BillItem;
+import edu.westga.cs1302.bill.test.TestingConstants;
 
 class TestGetTax {
-	 @Test
-	    public void testGetTax_WithValidItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            new BillItem("Fries", 3.49),
-	            new BillItem("Soda", 1.99)
-	        };
-	        
-	        double expectedTax = (10.99 + 3.49 + 1.99) * 0.1;
-	        double actualTax = BillCalculator.getTax(items);
-	        
-	        assertEquals(expectedTax, actualTax, 0.001);
-	    }
 
-	    @Test
-	    public void testGetTax_WithNullItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            null,
-	            new BillItem("Fries", 3.49)
-	        };
-	        
-	        double expectedTax = (10.99 + 3.49) * 0.1;
-	        double actualTax = BillCalculator.getTax(items);
-	        
-	        assertEquals(expectedTax, actualTax, 0.001);
-	    }
+	@Test
+	void testNullItems() {
+		assertThrows(IllegalArgumentException.class, ()->{BillCalculator.getTax(null);});
+	}
 
-	    @Test
-	    public void testGetTax_WithEmptyArray() {
-	        BillItem[] items = new BillItem[0];
-	        
-	        double expectedTax = 0.0 * 0.1; // Tax on $0 is $0
-	        double actualTax = BillCalculator.getTax(items);
-	        
-	        assertEquals(expectedTax, actualTax, 0.001);
-	    }
+	@Test
+	void testEmptyItems() {
+		double result = BillCalculator.getTax(new BillItem[0]);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
 
-	    @Test
-	    public void testGetTax_WithAllNullItems() {
-	        BillItem[] items = {
-	            null,
-	            null,
-	            null
-	        };
-	        
-	        double expectedTax = 0.0 * 0.1; 
-	        double actualTax = BillCalculator.getTax(items);
-	        
-	        assertEquals(expectedTax, actualTax, 0.001);
-	    }
+	@Test
+	void testOneItemNotNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = new BillItem("a", 1);
+		
+		double result = BillCalculator.getTax(items);
+		
+		assertEquals(0.1, result, TestingConstants.DELTA);
+	}
 
-	 }
+	@Test
+	void testOneItemAllNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = null;
+		
+		double result = BillCalculator.getTax(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
 
+	@Test
+	void testMultipleItemsNotNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = new BillItem("b", 2);
+		
+		double result = BillCalculator.getTax(items);
+		
+		assertEquals(0.3, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsSomeNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = null;
+		
+		double result = BillCalculator.getTax(items);
+		
+		assertEquals(0.1, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsAllNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = null;
+		items[1] = null;
+		
+		double result = BillCalculator.getTax(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
+
+}

@@ -1,0 +1,174 @@
+commit 9f58ad52222b95de38bbc4bffd266e7dbdd99d53
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 05:03:18 2024 -0400
+
+    Implemented the countItems method
+    
+    I implemented the method in the Mainwindow class for displaying the count of food in the
+    pantry to display a popup window with the sum quantity of all food items currently in the pantry
+
+commit aca7ee034bc2de190e5066222ab6ddeafd793871
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 04:39:21 2024 -0400
+
+    Created ItemsCount class
+    
+    created a static method in the Itemscount class to compute the total number of items
+
+commit 8857e40a01e2b3600a0a2998e8b8968401781bae
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 04:01:54 2024 -0400
+
+     Implementing UI for Counting Pantry
+    
+    I updated the MainWindow to include view of items in the pantry
+
+commit e436d947f05d2f737f1e99146bc71f14e6b523eb
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 02:03:14 2024 -0400
+
+    Implemented the removeFood
+    
+    Implemented the removeFood method in the MainWindow
+
+commit e21aa5aa94a9420fd64085784a21e241b129500b
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 01:55:00 2024 -0400
+
+    Added remove food feature
+    
+    Created a button for removing food in my UI and it reference method stub inthe Mainwindow class
+
+commit 1d7fdbc634afb19bdb511cd690e069475ba82fa6
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 01:26:37 2024 -0400
+
+    Implemented meethods
+    
+    Implemented the setQuantity, increment and decrement methods in the MainWindow
+
+commit 6bebf2057f23e2e74a653b441e58bce155db58e7
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 26 00:04:06 2024 -0400
+
+    Updated the Food class
+    
+    Created methods and test cases that allows setting quantity, incrementing and decrementing the quantity
+
+commit d2d50e0f723710599ff1d781d35484a0f801518c
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 25 20:48:14 2024 -0400
+
+    Added More fuctionality to the UI
+    
+    Updated the MainWindow to contain quantity field and a button to set it and also a decremantal and incremental button for the quantity.
+
+commit 5af6f8c9346733a2e9f175e4b5bdeecea750fee6
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 25 14:24:54 2024 -0400
+
+    Made changes to my MainWindow
+    
+    I updated the MainWindow class to implement the method for adding a food item  and to initialize the combobox of food types.
+
+commit defbf054e3207393a19feb84b9ef54d393890017
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 25 10:25:11 2024 -0400
+
+    Added a new class for storing food.
+    
+    Created a Food class that holds the value of a single food item
+
+commit e95dcab40866a6d2c61dd1fc82c837b49ccd2546
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 25 09:58:24 2024 -0400
+
+    Adding Features To UI
+    
+    Added a label and textfield for food name, label and combobox for food type, a button to submit food and listview to dispalay items.
+
+commit ffa358de770a9d46b10704c42379d45fa7f0c66a
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 25 09:53:00 2024 -0400
+
+    Adding Features To UI
+    
+    Added a label and textfield for food name, label and combobox for food type, a button to submit food and listview to dispalay items.
+
+commit d95419a3050e9b5c8ef0a3a9a03377eb9bc4387a
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Tue Sep 24 16:27:14 2024 -0400
+
+    New Project
+    
+    Added the project 1 base file to my repository
+
+commit deec1727fbdf00b60f1e95349fbe63a70407ecb5
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 19 07:37:33 2024 -0400
+
+    Tested BillCalculator
+    
+    Created Test cases to test the functionality of my methods in the Billcalculator
+
+commit 1d14e07f47ec34b6bedebb0fd72884e357b2f04f
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 19 06:21:56 2024 -0400
+
+    Implemented the methods
+    
+    Removed the methods from the billItem class an implemented them in the Billcalculator class. Changed those methods into static so that they be accessed anywhere.
+
+commit bc1a092fe65a13df1ecc7eb66cc2d14fe7798f15
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 18 16:14:13 2024 -0400
+
+    Created the method stubs
+    
+    Created method stubs that when implemented, will handle calculating the subtotal, tax, tip, and total for an Array of BillItem objects.
+
+commit 7b1fda6ccf207408f93fc529ac4969af92609fab
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 18 13:20:32 2024 -0400
+
+    Converted BillItem's Class Fields To Final
+    
+    Converted the fields to final to ensure that once the field is set in the BillItem constructor it can't be changed, and to signal future developers that the values will not change.
+
+commit 28c4c32a5f95157fc9852d682883ec5f05b3b79c
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Thu Sep 12 15:53:11 2024 -0400
+
+    Added the Bill file
+    
+    Added a the Bill file to the lab 3 local repository
+
+commit 8ec0ad55bb6c80b380b0857241170bf07ee382a7
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 11 23:23:33 2024 -0400
+
+    Added GradeCalculator class and unit tests for computing average grade
+    
+    Created a new class GradeCalculator to compute the average grade of students. Also created test cases for GradeCalculator.
+
+commit 4e186502391772e9b82f6935cbe636aa2a4a4513
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 11 16:09:17 2024 -0400
+
+    Adding Student Grades
+    
+    Added functionality to display student name and grade together
+
+commit 42079c25b55e5f3ffe314876500b50d8ffb68970
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 11 11:17:17 2024 -0400
+
+    Adding Initial Project
+    
+    Added the initial projects to the local repository
+
+commit b6b114ead614a11e00cb1e31af9cc94c9ccaac02
+Author: fmensah1 <fmensah1@my.westga.edu>
+Date:   Wed Sep 11 10:32:13 2024 -0400
+
+    Initial commit
