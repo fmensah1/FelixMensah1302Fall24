@@ -1,70 +1,78 @@
 package edu.westga.cs1302.bill.test.model.bill_calculator;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
 import edu.westga.cs1302.bill.model.BillCalculator;
 import edu.westga.cs1302.bill.model.BillItem;
+import edu.westga.cs1302.bill.test.TestingConstants;
 
+class TestGetSubtotal {
 
-	public class TestGetSubtotal{
-
-	    @Test
-	    public void testGetSubTotal_WithValidItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            new BillItem("Fries", 3.49),
-	            new BillItem("Soda", 1.99)
-	        };
-	        
-	        double expectedSubtotal = 10.99 + 3.49 + 1.99;
-	        double actualSubtotal = BillCalculator.getSubTotal(items);
-	        
-	        assertEquals(expectedSubtotal, actualSubtotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetSubTotal_WithNullItems() {
-	        BillItem[] items = {
-	            new BillItem("Burger", 10.99),
-	            null,
-	            new BillItem("Fries", 3.49)
-	        };
-	        
-	        double expectedSubtotal = 10.99 + 3.49;
-	        double actualSubtotal = BillCalculator.getSubTotal(items);
-	        
-	        assertEquals(expectedSubtotal, actualSubtotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetSubTotal_WithEmptyArray() {
-	        BillItem[] items = new BillItem[0];
-	        
-	        double expectedSubtotal = 0.0;
-	        double actualSubtotal = BillCalculator.getSubTotal(items);
-	        
-	        assertEquals(expectedSubtotal, actualSubtotal, 0.001);
-	    }
-
-	    @Test
-	    public void testGetSubTotal_WithAllNullItems() {
-	        BillItem[] items = {
-	            null,
-	            null,
-	            null
-	        };
-	        
-	        double expectedSubtotal = 0.0;
-	        double actualSubtotal = BillCalculator.getSubTotal(items);
-	        
-	        assertEquals(expectedSubtotal, actualSubtotal, 0.001);
-	    }
-
-	    
+	@Test
+	void testNullItems() {
+		assertThrows(IllegalArgumentException.class, ()->{BillCalculator.getSubTotal(null);});
 	}
 
+	@Test
+	void testEmptyItems() {
+		double result = BillCalculator.getSubTotal(new BillItem[0]);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
 
+	@Test
+	void testOneItemNotNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = new BillItem("a", 1);
+		
+		double result = BillCalculator.getSubTotal(items);
+		
+		assertEquals(1, result, TestingConstants.DELTA);
+	}
 
+	@Test
+	void testOneItemAllNull() {
+		BillItem[] items = new BillItem[1];
+		items[0] = null;
+		
+		double result = BillCalculator.getSubTotal(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsNotNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = new BillItem("b", 2);
+		
+		double result = BillCalculator.getSubTotal(items);
+		
+		assertEquals(3, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsSomeNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = new BillItem("a", 1);
+		items[1] = null;
+		
+		double result = BillCalculator.getSubTotal(items);
+		
+		assertEquals(1, result, TestingConstants.DELTA);
+	}
+
+	@Test
+	void testMultipleItemsAllNull() {
+		BillItem[] items = new BillItem[2];
+		items[0] = null;
+		items[1] = null;
+		
+		double result = BillCalculator.getSubTotal(items);
+		
+		assertEquals(0, result, TestingConstants.DELTA);
+	}
+
+}
